@@ -16,7 +16,6 @@
   </head>
   <body>
     <div id='background'></div>
-    <span id='title_container'></span>
     <div id="main_container">
         <div id="react_content"></div>
         <img id='phot_viewer' src='../static/resources/corsica.JPG' alt='landscape'>
@@ -27,11 +26,14 @@
             render: function() {
                 console.log(this.props.data);
                 var articleNodes = this.props.data.map(function (article) {
+                    var separator = " "+'\u0966'+" ";
+                    var d = new Date(article.date);
+                    var formatedDate = d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
                     return (
                         <div className="article">
                             <div className="article_header" id={article.id}>
                                 <span className="article_title">{article.title}</span>
-                                <span className="article_date">{article.date}</span>
+                                <span className="article_date">{formatedDate}</span>
                             </div>
                             <br />
                             {article.content}
@@ -70,15 +72,13 @@
         },
         render: function() {
             return (
-                <div id="feed_container">
-                    <ArticleList data={this.state.data} />
-                </div>
-            );
+                <ArticleList data={this.state.data} />
+                );
             }
         });
 
         ReactDOM.render(
-          <ArticleContainer url="http://127.0.0.1:5000/articles/" pollInterval={2000} />,
+          <ArticleContainer url="http://127.0.0.1:5000/articles/1" pollInterval={2000} />,
           document.getElementById('react_content')
         );
     </script>

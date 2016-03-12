@@ -11,7 +11,7 @@ from models import *
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-
+# root
 @app.route("/", methods=["GET"])
 def index():
     return render_template('index.html')

@@ -5,12 +5,12 @@
     line-height: 2.1;
     letter-spacing: 0.01vw;
     position:absolute;
-    top: 32%;
+    top: 8%;
     bottom: 0px;
     left: 5%;
     right: 5%;
     width: 90%;
-    height: 90%;
+    height: 85%;
     color: #666;
     background-color: #fdfdfd;
     margin-left: auto;
@@ -19,19 +19,16 @@
     border-radius: 4px;
 }
 
-#feed_container{
-    width: 46%;
+#article_container{
+    position: absolute;
+    width: 39%;
     height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
     float: left;
     overflow: scroll;
     border-radius: 4px;
-}
-
-#article_container {
-    width: 87%;
-    height: 90%;
-    float: left;
-    border-radius: 4px;
+    border-right: 1px solid #ddd;
 }
 
 .article_header {
@@ -57,36 +54,12 @@
 }
 
 .article {
-    border-right: 1px solid #ddd;
     background-color: #fdfdfd;
-    border-bottom: 1px solid #ddd;
     padding:  8%;
     margin-bottom: 0;
     padding-bottom: 8%;
 }
 
-.rond{
-    float: left;
-    position: relative;
-    margin-top: 0%;
-    left: 113.5%;
-    width: 10px;
-    height: 10px;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-    z-index: 800;
-    border: 1px solid #ddd;
-}
-
-.vertical_line {
-    position: relative;
-    top:0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1px;
-    background-color: #ddd;
-    height: 100%;
-}
 
 #phot_test {
     margin-top: 30%;
@@ -94,10 +67,11 @@
 
 #phot_viewer {
     float: right;
-    width:51%;
-    margin: 3%;
+    width:50%;
+    margin: 4%;
     margin-left: 0%;
+    margin-right: 5%;
     border-radius: 2px;
-    padding-bottom: 3%;
+    padding-bottom: 2%;
     border-bottom: 1px solid #ddd;
 }
