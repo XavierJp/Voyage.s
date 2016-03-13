@@ -15,25 +15,29 @@
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
   </head>
   <body>
-    <div id='background'></div>
+    <img id="title_pic" src="../static/resources/corsica_logo.JPG" alt='title picture'></img>
     <div id="main_container">
         <div id="react_content"></div>
-        <img id='phot_viewer' src='../static/resources/corsica.JPG' alt='landscape'>
+        <img id="phot_viewer" src="../static/resources/corsica.JPG" alt='landscape'>
     </div>
     <script type="text/babel">
+
+        function formatDate(articleDate) {
+            var separator = " "+'\u0966'+" ";
+            var d = new Date(articleDate);
+            return d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
+        }
 
         var ArticleList = React.createClass({
             render: function() {
                 console.log(this.props.data);
                 var articleNodes = this.props.data.map(function (article) {
-                    var separator = " "+'\u0966'+" ";
-                    var d = new Date(article.date);
-                    var formatedDate = d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
+
                     return (
                         <div className="article">
                             <div className="article_header" id={article.id}>
                                 <span className="article_title">{article.title}</span>
-                                <span className="article_date">{formatedDate}</span>
+                                <span className="article_date">{formatDate(article.date)}</span>
                             </div>
                             <br />
                             {article.content}

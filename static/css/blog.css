@@ -7,13 +7,11 @@ body{
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 0.9vw;
     background-color: #eee;
-}
 
-#background{
     position: fixed;
     background-image: url("../resources/header2.JPG");
     background-size: 100%;
-    width: 100%;
-    height: 100%;
+    z-index: -1;
 }
+
 
