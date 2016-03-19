@@ -15,34 +15,33 @@
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
   </head>
   <body>
-    <div id='background'></div>
-    <span id='title_container'></span>
+    <img id="title_pic" src="../static/resources/corsica_logo.JPG" alt='title picture'></img>
     <div id="main_container">
         <div id="react_content"></div>
-        <img id='phot_viewer' src='../static/resources/corsica.JPG' alt='landscape'>
+        <img id="phot_viewer" src="../static/resources/vulcano.JPG" alt='landscape'>
     </div>
     <script type="text/babel">
 
+        function formatDate(articleDate) {
+            var separator = " "+'\u0966'+" ";
+            var d = new Date(articleDate);
+            return d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
+        }
+
         var ArticleList = React.createClass({
             render: function() {
-                console.log(this.props.data);
-                var articleNodes = this.props.data.map(function (article) {
-                    return (
-                        <div className="article">
-                            <div className="article_header" id={article.id}>
-                                <span className="article_title">{article.title}</span>
-                                <span className="article_date">{article.date}</span>
-                            </div>
-                            <br />
-                            {article.content}
-                            <br />
-                        </div >
-                    );
-                });
+                console.log(this.props.data)
+                console.log(this.props.data.content)
                 return (
                     <div id="article_container">
-                    {articleNodes}
-                    </div>
+                        <div className="article_header" id={this.props.data.id}>
+                            <span className="article_title">{this.props.data.title}</span>
+                            <span className="article_date">{formatDate(this.props.data.date)}</span>
+                        </div>
+                        <br />
+                        <p className="content">{this.props.data.content}</p>
+                        <br />
+                    </div >
                 );
             }
         });
@@ -54,7 +53,7 @@
                     dataType: 'json',
                     cache: false,
                     success: function(data) {
-                        this.setState({data: data.article});
+                        this.setState({data: data});
                     }.bind(this),
                     error: function(xhr, status, err) {
                     console.error(this.props.url, status, err.toString());
@@ -70,15 +69,13 @@
         },
         render: function() {
             return (
-                <div id="feed_container">
-                    <ArticleList data={this.state.data} />
-                </div>
-            );
+                <ArticleList data={this.state.data} />
+                );
             }
         });
 
         ReactDOM.render(
-          <ArticleContainer url="http://127.0.0.1:5000/articles/" pollInterval={2000} />,
+          <ArticleContainer url="http://127.0.0.1:5000/article/1" pollInterval={2000} />,
           document.getElementById('react_content')
         );
     </script>
