@@ -22,7 +22,7 @@
 
 #article_container{
     position: absolute;
-    width: 39%;
+    width: 44%;
     height: 100%;
     margin-top: 0;
     margin-bottom: 0;
@@ -43,20 +43,24 @@
     font-size: 0.8vw;
     text-transform: uppercase;
     color: #333;
-    text-align: center;
+    float: left;
     width: 100%;
-    position: absolute;
-    margin-top: 11%;
+    margin-top: 7%;
     margin-left: 0;
-    letter-spacing: 1.1em;
+    letter-spacing: 0.2em;
+    text-align: center;
 }
 
 .article_date{
-    float: right;
-    font-weight: 200;
-    font-size: 0.8vw;
+    text-align: center;
+    float: left;
+    width: 100%;
+    font-weight: 100;
+    font-size: 0.7vw;
     text-transform: uppercase;
     color: #777;
+    margin-top: 0;
+    margin-left: 0;
 }
 
 .article {
@@ -68,10 +72,10 @@
 
 #title_pic {
     margin: 0 auto;
-    width: 14%;
+    width: 7%;
     height: auto;
     z-index: +1;
-    margin: 1% 0 0 17%;
+    margin: 1% 0 0 22%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -83,10 +87,10 @@
 
 #phot_viewer {
     float: right;
-    width:50%;
-    margin: 4%;
+    width: 49%;
+    margin: 3%;
     margin-left: 0%;
-    margin-right: 5%;
+    margin-right: 3%;
     border-radius: 2px;
     padding-bottom: 2%;
     border-bottom: 1px solid #ddd;
