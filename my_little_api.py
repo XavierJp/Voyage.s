@@ -32,13 +32,14 @@ def get_all_articles():
     return jsonify({'article': task})
 
 
-@app.route('/articles/<int:art_id>', methods=['GET'])
+@app.route('/article/<int:art_id>', methods=['GET'])
 def get_article(art_id):
-    query = str(db_session.query(Article).filter(Article.id == art_id).all())
-    task = eval(query)
+    q = str(Article.query.get(art_id))
+    task = eval(q)
+
     if len(task) == 0:
         abort(404)
-    return jsonify({'article': task})
+    return jsonify(task)
 
 
 @app.errorhandler(404)

@@ -19,18 +19,36 @@ class Article(Base):
     __tablename__ = 'Articles'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    content = db.Column(db.String(100))
     title = db.Column(db.String(100))
     date = db.Column(db.DateTime)
-    children_id = Column(Integer, ForeignKey('Articles.id'))
+    content = db.Column(db.Text)
 
     def __init__(self, order=None, content=None):
         self.order = order
         self.content = content
 
     def __repr__(self):
-        js = '{"id":%s, "title":"%s", "content":"%s", "date":"%s"}'
-        return js % (self.id, self.title, self.content, self.date)
+        js = '{"id":%s, "title":"%s", "date":"%s", "content":"%s"}'
+        return js % (self.id, self.title, self.date, self.content)
+
+
+# Class Pictures
+class Picture(Base):
+    __tablename__ = 'Pictures'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    article_id = Column(Integer, ForeignKey('Articles.id'))
+    title = db.Column(db.String(100))
+    description = db.Column(db.String(100))
+    path = db.Column(db.String(100))
+
+    def __init__(self, order=None, content=None):
+        self.order = order
+        self.content = content
+
+    def __repr__(self):
+        js = '{"id":%s, "title":"%s", "description":"%s", "path":"%s"}'
+        return js % (self.id, self.title, self.description, self.path)
 
 # Create tables.
 Base.metadata.create_all(bind=engine)

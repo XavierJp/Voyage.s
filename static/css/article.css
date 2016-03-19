@@ -27,7 +27,6 @@
     margin-top: 0;
     margin-bottom: 0;
     float: left;
-    overflow: scroll;
     border-radius: 4px;
     border-right: 1px solid #ddd;
 }
@@ -35,7 +34,8 @@
 .article_header {
     padding: 0;
     margin: 0;
-    padding-bottom: 1%;
+    margin-top: 6%;
+    margin-bottom: 1%;
 }
 
 .article_title{
@@ -63,11 +63,16 @@
     margin-left: 0;
 }
 
-.article {
-    background-color: #fdfdfd;
-    padding:  8%;
-    margin-bottom: 0;
-    padding-bottom: 8%;
+.content{
+    margin-top: 12%;
+    font-size: 0.9em;
+    overflow: scroll;
+    height:73%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 #title_pic {
@@ -75,7 +80,7 @@
     width: 7%;
     height: auto;
     z-index: +1;
-    margin: 1% 0 0 22%;
+    margin: 1% 0 0 21%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
