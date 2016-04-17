@@ -40,15 +40,14 @@ class Picture(Base):
     article_id = Column(Integer, ForeignKey('Articles.id'))
     title = db.Column(db.String(100))
     description = db.Column(db.String(100))
-    path = db.Column(db.String(100))
 
     def __init__(self, order=None, content=None):
         self.order = order
         self.content = content
 
     def __repr__(self):
-        js = '{"id":%s, "title":"%s", "description":"%s", "path":"%s"}'
-        return js % (self.id, self.title, self.description, self.path)
+        js = '{"id":%s, "title":"%s", "description":"%s"}'
+        return js % (self.id, self.title, self.description)
 
 # Create tables.
 Base.metadata.create_all(bind=engine)
