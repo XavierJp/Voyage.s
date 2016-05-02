@@ -6,7 +6,7 @@ from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from my_little_api import db
 
 
-engine = create_engine('mysql://xavier@localhost/Blog', echo=True)
+engine = create_engine('postgresql://localhost/hk_blog', echo=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
