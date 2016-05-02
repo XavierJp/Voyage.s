@@ -41,7 +41,6 @@ class Picture(Base):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     article_id = Column(Integer, ForeignKey('Articles.id'))
     title = db.Column(db.String(100))
-    description = db.Column(db.String(100))
 
     def __init__(self, order=None, content=None):
         self.order = order
