@@ -22,6 +22,8 @@ class Article(Base):
     title = db.Column(db.String(100))
     date = db.Column(db.DateTime)
     content = db.Column(db.Text)
+    latitude = db.Column(db.String(20))
+    longitude = db.Column(db.String(20))
 
     def __init__(self, order=None, content=None):
         self.order = order
