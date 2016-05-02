@@ -1,0 +1,72 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HK Blog</title>
+    <meta charset="utf-8" />
+    <!--JS-->
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    </style>
+
+
+</script>
+    <!--STYLES-->
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/map.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
+  </head>
+  <body>
+    <script>
+        var width = 1400,
+        height = 800;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        d3.json("../static/maps/euras3.json", function(error, euras) {
+        if (error) return console.error(error);
+        console.log(euras);
+
+        var subunits = topojson.feature(euras, euras.objects.subunits);
+        var places = topojson.feature(euras, euras.objects.places);
+        var projection = d3.geo.albers()
+            .rotate([-105, 0])
+            .center([-10, 65])
+            .parallels([52, 64])
+            .scale(600)
+            .translate([width / 2, height / 3]);
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        svg.selectAll(".subunits")
+            .data(topojson.feature(euras, euras.objects.subunits).features)
+          .enter().append("path")
+            .attr("class", function(d) { return "subunits " + d.id; })
+            .attr("d", path);
+
+        svg.append("path")
+            .datum(topojson.mesh(euras, euras.objects.subunits, function(a, b) { return a !== b}))
+            .attr("d", path)
+            .attr("class", "subunit-boundary");
+
+        svg.append("path")
+          .datum(places)
+          .attr("d", path.pointRadius(2))
+          .attr("class", "place");
+
+        svg.selectAll(".place-label")
+            .data(places.features)
+          .enter().append("text")
+            .attr("class", "place-label")
+            .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
+            .attr("dy", ".25em")
+            .attr("dx", ".5em")
+            .attr("font-size","0.8em")
+            .text(function(d) { return d.properties.name; });
+
+        });
+    </script>
+</html>
