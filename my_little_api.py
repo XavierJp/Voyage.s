@@ -23,23 +23,15 @@ def shutdown_session(exception=None):
     db_session.remove()
 
 
-@app.route('/articles/', methods=['GET'])
-def get_all_articles():
-    query = str(db_session.query(Article).all())
-    task = eval(query)
-    if len(task) == 0:
-        abort(404)
-    return jsonify({'article': task})
-
-
 @app.route('/article/<int:art_id>', methods=['GET'])
 def get_article(art_id):
-    q = str(Article.query.get(art_id))
-    task = eval(q)
+    q_art = eval(str(Article.query.get(art_id)))
+    q_str = eval(str(Picture.query.filter(Picture.article_id == art_id).all()))
+    q_art['pictures'] = q_str
 
-    if len(task) == 0:
+    if len(q_art) == 0:
         abort(404)
-    return jsonify(task)
+    return jsonify(q_art)
 
 
 @app.errorhandler(404)
