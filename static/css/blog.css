@@ -9,7 +9,7 @@ body{
     background-color: #eee;
 
     position: fixed;
-    background-image: url("../resources/background/header2.JPG");
+    background-image: url("../resources/background/header2.jpg");
     background-size: 100%;
     z-index: -1;
 }

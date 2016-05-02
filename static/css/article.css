@@ -19,7 +19,45 @@
     border-radius: 4px;
     z-index:-1;
 }
+/* map link */
+#map_link {
+    color: #efefef;
+    font-size: 0.6em;
+    text-decoration: none;
+    -webkit-transition: color 0.5s; /* Safari */
+    transition: color 0.5s;
+    letter-spacing: 1.7em;
+    text-transform: uppercase;
+    font-weight: 100;
+    float:right;
+    margin-top: -2%;
+}
 
+#map_link:hover {
+    color:#fff;
+}
+/* medaillon */
+#article_pic_container{
+    width: 44%;
+    height:auto;
+    float:left;
+    margin-top:-4%;
+}
+
+#article_pic {
+    margin-left:42.5%;
+    width: 20%;
+    z-index: +1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #fdfdfd;
+    box-shadow: 0px 0px 1px #444;
+}
+
+/* article */
 #article_container{
     position: absolute;
     width: 44%;
@@ -75,20 +113,7 @@
     text-justify: inter-word;
 }
 
-#article_pic {
-    margin: 0 auto;
-    width: 7%;
-    height: auto;
-    z-index: +1;
-    margin: 1% 0 0 21%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    border: 3px solid #fdfdfd;
-    box-shadow: 0px 0px 1px #444;
-}
+/* picture viewer */
 
 #phot_viewer {
     width: 100%;
@@ -106,22 +131,51 @@
 }
 
 #pic_list {
-    border-top: 1px solid #ddd;
-    height: 15%;
-    overflow: scroll;
-    padding-top: 3%;
+    width: 40%;
+    height: 5%;
+    margin: 2% auto 0;
+    position: relative;
 }
 
 #pic_list ul {
-    list-style-type: none;
-}
-#pic_list li {
-    display: inline;
-    padding: 0%;
-    margin: 0%;
-    margin-right: 2%;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0 0;
+    position: absolute;
+    z-index: 10;
+    list-style: none;
+    left: 50%;
 }
 
-#pic_list img{
-    width: 9%;
+#pic_list li:first-child {
+    margin-left: 6%;
 }
+
+#pic_list li {
+    float: left;
+    margin-right: 6%;
+}
+
+#pic_list li:last-child {
+    margin-right: 0;
+}
+
+#pic_list a {
+    width: 6px;
+    height: 6px;
+    display: block;
+    outline: none;
+    border: none;
+    position: relative;
+    z-index: 2;
+    background: #aaa;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#pic_list a:hover {
+    background: #888;
+}
+
+
