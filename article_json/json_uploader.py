@@ -6,38 +6,55 @@ import json
 import os
 import shutil
 
+
+def db_query(sql, db, cursor, r_w):
+	cursor.execute(sql)
+	print(" *** Execute SQL *** : "+sql)
+	if r_w:
+		db.commit()
+
+
+
 # Open database connection
 db = MySQLdb.connect("localhost", "hk_blog", "c3r1s3", "blog")
+article_title = ""
 
 with open(sys.argv[1]+'.json') as data_file:
-    data = json.load(data_file)
-    sql = "INSERT INTO blog.Articles SET "
-    for pos, k in enumerate(data.keys()):
-        sql += k+"='"+data[k]+"'," if pos < len(data.keys()) else "';"
+    	data = json.load(data_file)	
+    	article_title = data["title"]
+    	sql = "INSERT INTO blog.Articles SET "
+   	for pos, k in enumerate(data.keys()):
+        	sql += k+"='"+data[k]
+		sql += "'," if pos < len(data.keys())-1 else "';"
 
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
 # execute SQL query using execute() method.
-cursor.execute(sql)
+db_query(sql, db, cursor, True)
+	
+sql_get_id = "SELECT id from blog.Articles WHERE title ='"+article_title+"'"
+db_query(sql_get_id, db, cursor, True)
 
-cursor.execute("SELECT id from blog.articles WHERE title ="+data["title"])
+art_id = cursor.fetchone()[0]
 
-art_id = cursor.fetchall()
-
-print(art_id)
+print("*** Uploading pictures with article_id : "+str(art_id))
 
 # load new pics
 new_pics_dir = "../new_pics/"
+target_pics_dir = "../static/resources/pictures/"+str(art_id)
+
+os.makedirs(target_pics_dir)
+
 for el in os.listdir(new_pics_dir):
-    sql_pics = "INSERT INTO blog.Pictures SET article_id = "+art_id+", title='" + el+"'"
-    cursor.execute(sql_pics)
-    shutil.move(new_pics_dir, target_pics_dir)
-    print("save picture :" + el)
+    	sql_pics = "INSERT INTO blog.Pictures SET article_id = "+str(art_id)+", title='" + el+"'"
+    	db_query(sql_pics, db, cursor, True)
+	shutil.move(new_pics_dir+el, target_pics_dir)
+    	print("*** Save picture :" + el)
 
 
-target_pics_dir = "../static/resources/pictures/"
 # send emails
 # disconnect from server
-db.close()
+	db.close()
+

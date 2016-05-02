@@ -50,7 +50,7 @@
                                 <br />
                             </div >
                             <div id="pic_container">
-                                <img id="phot_viewer" src={"../static/resources/pictures/"+this.props.data.pictures[0].title+"_large.jpg"}></img>
+                                <img id="phot_viewer" src={"../static/resources/pictures/"+this.props.data.pictures[0].title}></img>
                                 <ul id="pic_list">{pics}</ul>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
         });
 
         ReactDOM.render(
-          <ArticleContainer url="http://188.166.174.48:8080/article/1" pollInterval={2000} />,
+          <ArticleContainer url="{{'http://188.166.174.48:8080/article/'+article.id}}" pollInterval={2000} />,
           document.getElementById('react_content')
         );
     </script>

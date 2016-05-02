@@ -47,8 +47,8 @@ class Picture(Base):
         self.content = content
 
     def __repr__(self):
-        js = '{"id":%s, "title":"%s", "description":"%s"}'
-        return js % (self.id, self.title, self.description)
+        js = '{"id":%s, "title":"%s"}' 
+        return js % (self.id, self.title)
 
 # Create tables.
 Base.metadata.create_all(bind=engine)

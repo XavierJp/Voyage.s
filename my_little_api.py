@@ -13,9 +13,10 @@ db = SQLAlchemy(app)
 
 
 # root
-@app.route("/", methods=["GET"])
-def index():
-    return render_template('index.html')
+@app.route("/<int:art_id>", methods=["GET"])
+def index(art_id):
+	art = {'id':str(art_id)}
+	return render_template('index.html', article= art)
 
 
 @app.teardown_appcontext
