@@ -27,17 +27,21 @@
         var Wrapper = React.createClass({
             render: function() {
                 console.log(this.props.data);
+                console.log(document.getElementById("pic_list"));
                 var pics = this.props.data.pictures.map(function(p) {
                     return (
                         <li>
-                            <img src={"../static/resources/pictures_min/"+p.title+".png"}></img>
+                            <a href={"#five"+p.title}></a>
                         </li>
                     );
                 });
                 return (
                     <div>
-                        <img id="article_pic" src={"../static/resources/article_min/"+this.props.data.title+".JPG"} alt='title picture'></img>
                         <div id="main_container">
+                            <div id="article_pic_container">
+                                <img id="article_pic" src={"../static/resources/article_min/"+this.props.data.title+".JPG"} alt='title picture'></img>
+                            </div>
+                            <a id="map_link" href="http://127.0.0.1:5000/map">MAPPEMONDE</a>
                             <div id="article_container">
                                 <div className="article_header" id={this.props.data.id}>
                                     <span className="article_title">{this.props.data.title}</span>
@@ -89,6 +93,7 @@
           <ArticleContainer url="http://127.0.0.1:5000/article/1" pollInterval={2000} />,
           document.getElementById('react_content')
         );
+        document.getElementById("pic_list").style.width="30%";
     </script>
   </body>
 </html>

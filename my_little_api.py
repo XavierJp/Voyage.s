@@ -17,6 +17,10 @@ db = SQLAlchemy(app)
 def index():
     return render_template('index.html')
 
+# rmap
+@app.route("/map", methods=["GET"])
+def map():
+    return render_template('map.html')
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
