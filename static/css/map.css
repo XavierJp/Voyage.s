@@ -1,15 +1,14 @@
 
-.subunits.RUA { fill: #ddddff; }
-.subunits.RUE { fill: #ddddff; }
-.subunits.RUK { fill: #ddddff; }
-.subunits.CHI { fill: #dd8888; }
-.subunits.CHH { fill: #dd8888; }
-.subunits.MNG { fill: #77aa55; }
+.subunits.RUA { fill: #def2df; }
+.subunits.RUE { fill: #def2df; }
+.subunits.RUK { fill: #def2df; }
+.subunits.CHI { fill: #f4ffdb; }
+.subunits.CHH { fill: #f4ffdb; }
+.subunits.MNG { fill: #f2e6de; }
 
 .subunit-boundary {
   fill: none;
-  stroke: #777;
-  stroke-dasharray: 2,2;
+  stroke: #ff6600;
   stroke-linejoin: round;
 }
 

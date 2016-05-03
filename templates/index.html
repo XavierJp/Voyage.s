@@ -23,7 +23,7 @@
             var d = new Date(articleDate);
             return d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
         }
-                    
+		                    
 
         var Wrapper = React.createClass({
             render: function() {
@@ -97,7 +97,7 @@
         });
 
         ReactDOM.render(
-          <ArticleContainer url="{{'http://188.166.174.48:8080/article/'+article.id}}" pollInterval={2000} />,
+          <ArticleContainer url="{{'http://188.166.174.48:8080/article/'+article.id}}" pollInterval={20000} />,
           document.getElementById('react_content')
         );
     </script>
