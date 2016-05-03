@@ -39,8 +39,17 @@
                 return (
                     <div>
                         <div id="main_container">
-                            <a id="map_link" href="http://188.166.174.48:8080/map">MAPPEMONDE</a>
-                            <div id="article_container">
+				<div id="article_container">
+			    <ul class="pic_list">	
+				<li>
+				    <a id="map_link" href="http://188.166.174.48:8080/map">
+ 					<img id="glob" src="../static/resources/icon/glob.png"></img>
+				    </a>
+				</li>
+				<li>
+ 					<img id="mail" src="../static/resources/icon/mail.png"></img>
+				</li>
+			    </ul>
                                 <div className="article_header" id={this.props.data.id}>
                                     <span className="article_title">{this.props.data.title}</span>
                                     <span className="article_date">{formatDate(this.props.data.date)}</span>
@@ -51,7 +60,7 @@
                             </div >
                             <div id="pic_container">
                                 <img id="phot_viewer" src={"../static/resources/pictures/"+this.props.data.pictures[0].title}></img>
-                                <ul id="pic_list">{pics}</ul>
+                                <ul id="droplet" className="pic_list">{pics}</ul>
                             </div>
                         </div>
                     </div>

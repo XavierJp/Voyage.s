@@ -21,19 +21,33 @@
 }
 /* map link */
 #map_link {
+    float:left;
+    width:3%;
+    margin-left:1%;
+    margin-top:1%;
+}
+
+#glob{
+    width:100%;
+}
+
+#mail {
+   float:right;
+   width:3%;
+}
+
+/* default link */
+a{
     color: #efefef;
+    font-weight: 100;
     font-size: 0.6em;
     text-decoration: none;
     -webkit-transition: color 0.5s; /* Safari */
     transition: color 0.5s;
     letter-spacing: 1.7em;
-    text-transform: uppercase;
-    font-weight: 100;
-    float:right;
-    margin-top: -2%;
-}
+} 
 
-#map_link:hover {
+a:hover {
     color:#fff;
 }
 /* medaillon */
@@ -67,6 +81,7 @@
     margin-left: 1%;
     float: left;
     border-right: 1px solid #ddd;
+    z-index:-1;
 }
 
 .article_header {
@@ -83,7 +98,7 @@
     color: #333;
     float: left;
     width: 100%;
-    margin-top: 7%;
+    margin-top: 0%;
     margin-left: 0;
     letter-spacing: 0.2em;
     text-align: center;
@@ -104,7 +119,7 @@
 .content{
     margin-top: 12%;
     font-size: 0.9em;
-    overflow: scroll;
+    overflow-y: scroll;
     height:73%;
     margin-left: 10%;
     margin-right: 10%;
@@ -119,7 +134,6 @@
     width: 100%;
     margin-bottom: 3%;
     border-radius: 2px;
-    border-bottom: 1px solid #ddd;
 }
 
 #pic_container {
@@ -130,14 +144,14 @@
     float: right;
 }
 
-#pic_list {
+.pic_list {
     width: 40%;
     height: 5%;
     margin: 2% auto 0;
     position: relative;
 }
 
-#pic_list ul {
+.pic_list ul {
     width: 100%;
     height: 100%;
     padding: 0 0 0 0;
@@ -147,20 +161,20 @@
     left: 50%;
 }
 
-#pic_list li:first-child {
+.pic_list li:first-child {
     margin-left: 6%;
 }
 
-#pic_list li {
+.pic_list li {
     float: left;
     margin-right: 6%;
 }
 
-#pic_list li:last-child {
+.pic_list li:last-child {
     margin-right: 0;
 }
 
-#pic_list a {
+.pic_list a {
     width: 6px;
     height: 6px;
     display: block;
@@ -174,7 +188,7 @@
     border-radius: 50%;
 }
 
-#pic_list a:hover {
+.pic_list a:hover {
     background: #888;
 }
 

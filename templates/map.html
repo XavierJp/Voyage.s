@@ -17,11 +17,12 @@
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
   </head>
   <body>
+    <div id="map_container"></div>
     <script>
         var width = 1400,
         height = 800;
 
-        var svg = d3.select("body").append("svg")
+        var svg = d3.select("#map_container").append("svg")
             .attr("width", width)
             .attr("height", height);
 

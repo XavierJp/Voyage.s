@@ -14,4 +14,8 @@ body{
     z-index: -1;
 }
 
-
+/* scrollbar webkit */
+::-webkit-scrollbar { width:9px; }
+::-webkit-scrollbar-track { background: none;}
+::-webkit-scrollbar-thumb { background: #333; }
+::-webkit-scrollbar-thumb:window-inactive { background: #eee;}

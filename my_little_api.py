@@ -12,12 +12,17 @@ app = Flask(__name__)
 db = SQLAlchemy(app)
 
 
+# map
+@app.route("/map", methods=["GET"])
+def map():
+	return render_template('map.html')
+
+
 # root
 @app.route("/<int:art_id>", methods=["GET"])
 def index(art_id):
 	art = {'id':str(art_id)}
 	return render_template('index.html', article= art)
-
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
