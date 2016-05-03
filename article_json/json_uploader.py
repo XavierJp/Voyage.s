@@ -8,8 +8,8 @@ import shutil
 
 
 def db_query(sql, db, cursor, r_w):
-	cursor.execute(sql)
 	print(" *** Execute SQL *** : "+sql)
+	cursor.execute(sql)
 	if r_w:
 		db.commit()
 

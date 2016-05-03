@@ -30,8 +30,8 @@ class Article(Base):
         self.content = content
 
     def __repr__(self):
-        js = '{"id":%s, "title":"%s", "date":"%s", "content":"%s"}'
-        return js % (self.id, self.title, self.date, self.content)
+        js = '{"id":%s, "title":"%s", "date":"%s", "content":"%s", "lat":"%s", "long":"%s"}'
+        return js % (self.id, self.title, self.date, self.content, self.latitude, self.longitude)
 
 
 # Class Pictures

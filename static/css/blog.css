@@ -17,5 +17,5 @@ body{
 /* scrollbar webkit */
 ::-webkit-scrollbar { width:9px; }
 ::-webkit-scrollbar-track { background: none;}
-::-webkit-scrollbar-thumb { background: #333; }
+::-webkit-scrollbar-thumb { border-radius:15px; background: rgba(50,50,50, 0.5); }
 ::-webkit-scrollbar-thumb:window-inactive { background: #eee;}
