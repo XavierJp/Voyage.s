@@ -21,7 +21,7 @@
     <script>
         var width = 1400,
         height = 800;
-
+        
         var svg = d3.select("#map_container").append("svg")
             .attr("width", width)
             .attr("height", height);
@@ -32,7 +32,7 @@
         d3.json("http://188.166.174.48:8080/map/articles", function(error, arts) {
         if (error) return console.error(error);
         euras["objects"]["arts"] = arts;
-        });
+      	console.log(euras);
 
         var arts = topojson.feature(euras, euras.objects.arts);
         var subunits = topojson.feature(euras, euras.objects.subunits);
@@ -74,16 +74,25 @@
             .attr("font-size","0.8em")
             .text(function(d) { return d.properties.name; });
 
-        svg.selectAll(".place-label")
+        svg.append("path")
+          .datum(arts)
+          .attr("d", path.pointRadius(3))
+          .attr("class", "art_circle");
+
+
+        svg.selectAll(".art-label")
             .data(arts.features)
-          .enter().append("text")
-            .attr("class", "place-label")
+          .enter().append("svg:a")
+            .attr("xlink:href", function(d){return "http://188.166.174.48:8080/"+d.properties.id;})
+            .attr("class", "art-label")
             .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
             .attr("dy", ".25em")
             .attr("dx", ".5em")
             .attr("font-size","0.8em")
             .text(function(d) { return d.properties.name; });
 
+
+        });
         });
     </script>
 </html>

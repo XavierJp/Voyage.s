@@ -22,9 +22,9 @@
 /* map link */
 #map_link {
     float:left;
-    width:3%;
+    width:4%;
     margin-left:1%;
-    margin-top:1%;
+    margin-top:3%;
 }
 
 #glob{
@@ -117,7 +117,7 @@ a:hover {
 }
 
 .content{
-    margin-top: 12%;
+    margin-top: 10%;
     font-size: 0.9em;
     overflow-y: scroll;
     height:73%;
