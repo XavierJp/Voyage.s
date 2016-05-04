@@ -14,8 +14,25 @@
 
 .place, .place-label{
     fill: #222;
+    text-transform:uppercase;
 }
 
 .art_circle, .art-label {
-    fill: #844;
+    fill: #a11;
+    text-transform:uppercase;
+}
+
+
+#map_container svg{
+    display:block;
+    margin:auto;
+}
+
+
+.subunit-label {
+ fill:#777;
+ fill-opacity: .5;
+ text-anchor:middle;
+ font-weight:300;
+ text-transform:uppercase;
 }

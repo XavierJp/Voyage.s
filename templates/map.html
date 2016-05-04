@@ -58,6 +58,15 @@
             .attr("d", path)
             .attr("class", "subunit-boundary");
 
+        svg.selectAll("subunits-label")
+            .data(topojson.feature(euras, euras.objects.subunits).features)
+          .enter().append("text")
+            .attr("class", function(d) { return "subunit-label "+ d.id; })
+            .attr("transform", function(d) {return "translate(" + path.centroid(d) + ")"; })
+	    .attr("dy", ".35em")
+            .text(function(d) {return d.properties.name; });
+
+
         svg.append("path")
           .datum(places)
           .attr("d", path.pointRadius(2))
@@ -76,7 +85,7 @@
 
         svg.append("path")
           .datum(arts)
-          .attr("d", path.pointRadius(3))
+          .attr("d", path.pointRadius(4))
           .attr("class", "art_circle");
 
 
@@ -84,13 +93,13 @@
             .data(arts.features)
           .enter().append("svg:a")
             .attr("xlink:href", function(d){return "http://188.166.174.48:8080/"+d.properties.id;})
+          .append("text")
             .attr("class", "art-label")
             .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
-            .attr("dy", ".25em")
-            .attr("dx", ".5em")
+            .attr("dy", "-1.25em")
+            .attr("dx", "-2em")
             .attr("font-size","0.8em")
             .text(function(d) { return d.properties.name; });
-
 
         });
         });

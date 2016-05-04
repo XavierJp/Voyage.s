@@ -11,7 +11,7 @@ from models import *
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-featCollec = {"type":"GeometryCollection","geometries":[]}
+featCollec = '{"type":"GeometryCollection","geometries":[]}'
 
 feat = '{ "type":"Point","properties":{"name":"%s", "id":%s}, "coordinates":[%s,%s]}'
 
@@ -19,7 +19,7 @@ feat = '{ "type":"Point","properties":{"name":"%s", "id":%s}, "coordinates":[%s,
 @app.route("/map/articles", methods=["GET"])
 def get_geo_articles():
     q_art = eval(str(Article.query.all()))
-    geo_art_coll = featCollec
+    geo_art_coll =eval(featCollec)
     for art in q_art:
 	feat_obj=eval(feat % (art["title"], art["id"], art["lat"], art["long"]))
         geo_art_coll["geometries"].append(feat_obj)

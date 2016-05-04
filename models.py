@@ -31,7 +31,7 @@ class Article(Base):
 
     def __repr__(self):
         js = '{"id":%s, "title":"%s", "date":"%s", "content":"%s", "lat":"%s", "long":"%s"}'
-        return js % (self.id, self.title, self.date, self.content, self.latitude, self.longitude)
+        return js % (self.id, self.title, self.date.strftime('%d %m %Y'), self.content, self.latitude, self.longitude)
 
 
 # Class Pictures

@@ -21,6 +21,7 @@
 }
 /* map link */
 #map_link {
+    color: #333;
     float:left;
     width:4%;
     margin-left:1%;
@@ -38,9 +39,9 @@
 
 /* default link */
 a{
-    color: #efefef;
+    color: #333;
     font-weight: 100;
-    font-size: 0.6em;
+    font-size: 1.em;
     text-decoration: none;
     -webkit-transition: color 0.5s; /* Safari */
     transition: color 0.5s;
@@ -122,10 +123,11 @@ a:hover {
     overflow-y: scroll;
     height:73%;
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right: 8%;
     margin-bottom: 5%;
     text-align: justify;
     text-justify: inter-word;
+    padding-right: 3%;
 }
 
 /* picture viewer */
@@ -182,14 +184,16 @@ a:hover {
     border: none;
     position: relative;
     z-index: 2;
-    background: #aaa;
+    background: none;
+    border:1px solid #aaa;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
 
 .pic_list a:hover {
-    background: #888;
+    background: none;
+    border: 1px solid #888;
 }
 
 

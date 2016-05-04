@@ -15,7 +15,7 @@ body{
 }
 
 /* scrollbar webkit */
-::-webkit-scrollbar { width:9px; }
-::-webkit-scrollbar-track { background: none;}
-::-webkit-scrollbar-thumb { border-radius:15px; background: rgba(50,50,50, 0.5); }
+::-webkit-scrollbar { width:1px; }
+::-webkit-scrollbar-track { border: 1px solid #ddd; border-radius:9px; background: none;}
+::-webkit-scrollbar-thumb { border-radius:15px; background: rgba(100,100,100, 0.1); border:1px solid #aaa; }
 ::-webkit-scrollbar-thumb:window-inactive { background: #eee;}
