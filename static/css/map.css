@@ -12,14 +12,19 @@
   stroke-linejoin: round;
 }
 
+.place-label, .art-label {
+    text-transform: uppercase;
+    text-shadow: 0.5px 0.5px #888;
+}
+
+
 .place, .place-label{
     fill: #222;
-    text-transform:uppercase;
+
 }
 
 .art_circle, .art-label {
     fill: #a11;
-    text-transform:uppercase;
 }
 
 

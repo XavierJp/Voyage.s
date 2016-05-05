@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HK Blog</title>
+    <title>XavOnRails</title>
     <meta charset="utf-8" />
     <!--JS-->
     <script src="../static/lib/react.min.js"></script>
+    <script src="../static/lib/jquery.min.js"></script>
     <script src="../static/lib/react-dom.min.js"></script>
     <script src="../static/lib/browser.min.js"></script>
-    <script src="../static/lib/jquery.min.js"></script>
     <!--STYLES-->
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/article.css">
@@ -46,7 +46,7 @@
 				<div id="article_container">
 			    <ul class="pic_list">	
 				<li>
-				    <a id="map_link" href="http://188.166.174.48:8080/map">
+				    <a id="map_link" href="http://xavonrails.com">
 				    {'\u2190'} </a>
 				</li>
 			    </ul>
@@ -99,7 +99,7 @@
         });
 
         ReactDOM.render(
-          <ArticleContainer url="{{'http://188.166.174.48:8080/article/'+article.id}}" pollInterval={20000} />,
+          <ArticleContainer url="{{'http://188.166.174.48/article/'+article.id}}" pollInterval={20000} />,
           document.getElementById('react_content')
         );
     </script>

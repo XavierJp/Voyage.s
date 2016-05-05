@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HK Blog</title>
+    <title>XavOnRails</title>
     <meta charset="utf-8" />
     <!--JS-->
-    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="../static/lib/d3.v3.min.js" charset="utf-8"></script>
+    <script src="../static/lib/topojson.v1.min.js"></script>
     </style>
 
 
@@ -29,7 +29,7 @@
         d3.json("../static/maps/euras3.json", function(error, euras) {
         if (error) return console.error(error);
 
-        d3.json("http://188.166.174.48:8080/map/articles", function(error, arts) {
+        d3.json("http://188.166.174.48/map/articles", function(error, arts) {
         if (error) return console.error(error);
         euras["objects"]["arts"] = arts;
       	console.log(euras);
@@ -92,12 +92,12 @@
         svg.selectAll(".art-label")
             .data(arts.features)
           .enter().append("svg:a")
-            .attr("xlink:href", function(d){return "http://188.166.174.48:8080/"+d.properties.id;})
+            .attr("xlink:href", function(d){return "http://xavonrails.com/"+d.properties.id;})
           .append("text")
             .attr("class", "art-label")
             .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
-            .attr("dy", "-1.25em")
-            .attr("dx", "-2em")
+            .attr("dy", ".25em")
+            .attr("dx", "0.5em")
             .attr("font-size","0.8em")
             .text(function(d) { return d.properties.name; });
 

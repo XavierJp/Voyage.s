@@ -7,12 +7,19 @@ import os
 import shutil
 
 
-def db_query(sql, db, cursor, r_w):
-	print(" *** Execute SQL *** : "+sql)
+def db_query(sql, db, r_w):
+        # prepare a cursor object using cursor() method
+        cursor = db.cursor()
+	print("*** Execute SQL *** : "+sql)
 	cursor.execute(sql)
+	if not r_w:
+          	a = cursor.fetchone()[0]
+        cursor.close()
 	if r_w:
 		db.commit()
-
+		return 0
+	else:
+		return a
 
 
 # Open database connection
@@ -28,16 +35,12 @@ with open(sys.argv[1]+'.json') as data_file:
 		sql += "'," if pos < len(data.keys())-1 else "';"
 
 
-# prepare a cursor object using cursor() method
-cursor = db.cursor()
 
 # execute SQL query using execute() method.
-db_query(sql, db, cursor, True)
+db_query(sql, db, True)
 	
 sql_get_id = "SELECT id from blog.Articles WHERE title ='"+article_title+"'"
-db_query(sql_get_id, db, cursor, True)
-
-art_id = cursor.fetchone()[0]
+art_id = db_query(sql_get_id, db, False)
 
 print("*** Uploading pictures with article_id : "+str(art_id))
 
@@ -48,13 +51,13 @@ target_pics_dir = "../static/resources/pictures/"+str(art_id)
 os.makedirs(target_pics_dir)
 
 for el in os.listdir(new_pics_dir):
-    	sql_pics = "INSERT INTO blog.Pictures SET article_id = "+str(art_id)+", title='" + el+"'"
-    	db_query(sql_pics, db, cursor, True)
-	shutil.move(new_pics_dir+el, target_pics_dir)
+    	sql_pics = "INSERT INTO blog.Pictures (article_id, title) VALUES ("+str(art_id)+",'" + el+"')"
+    	db_query(sql_pics, db, True)
     	print("*** Save picture :" + el)
+	shutil.move(new_pics_dir+el, target_pics_dir)
 
 
 # send emails
-# disconnect from server
-	db.close()
+# disconnect from 
+db.close()
 

@@ -25,7 +25,7 @@ def get_geo_articles():
         geo_art_coll["geometries"].append(feat_obj)
     return jsonify(geo_art_coll)
 
-@app.route("/map", methods=["GET"])
+@app.route("/", methods=["GET"])
 def map():
     q_art = eval(str(Article.query.all()))
     return render_template('map.html')
@@ -59,4 +59,4 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0', port=8080)
+    app.run(debug=True,host='0.0.0.0', port=80)
