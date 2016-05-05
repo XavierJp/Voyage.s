@@ -4,8 +4,13 @@ import MySQLdb
 import sys
 import json
 import os
-import shutil
+from PIL import Image
 
+def save_compressed(pic, curr, trg):
+	img = Image.open(curr+el)
+	img.save(trg+el, quality = 20, optimize =True)
+	os.remove(curr+el)
+	
 
 def db_query(sql, db, r_w):
         # prepare a cursor object using cursor() method
@@ -45,17 +50,16 @@ art_id = db_query(sql_get_id, db, False)
 print("*** Uploading pictures with article_id : "+str(art_id))
 
 # load new pics
-new_pics_dir = "../new_pics/"
-target_pics_dir = "../static/resources/pictures/"+str(art_id)
+curr_dir = "../new_pics/"
+trg_dir = "../static/resources/pictures/"+str(art_id)+"/"
 
-os.makedirs(target_pics_dir)
+os.makedirs(trg_dir)
 
-for el in os.listdir(new_pics_dir):
+for el in os.listdir(curr_dir):
     	sql_pics = "INSERT INTO blog.Pictures (article_id, title) VALUES ("+str(art_id)+",'" + el+"')"
     	db_query(sql_pics, db, True)
     	print("*** Save picture :" + el)
-	shutil.move(new_pics_dir+el, target_pics_dir)
-
+	save_compressed(el, curr_dir, trg_dir)
 
 # send emails
 # disconnect from 

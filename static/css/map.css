@@ -1,4 +1,3 @@
-
 .subunits.RUA { fill: #def2df; }
 .subunits.RUE { fill: #def2df; }
 .subunits.RUK { fill: #def2df; }
@@ -31,6 +30,7 @@
 #map_container svg{
     display:block;
     margin:auto;
+    margin-top:2%;
 }
 
 
