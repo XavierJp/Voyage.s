@@ -5,6 +5,11 @@
 .subunits.CHH { fill: #f4ffdb; }
 .subunits.MNG { fill: #f2e6de; }
 
+.subunit-outer-boundary {
+  fill: none;
+  stroke: #888;
+}
+
 .subunit-boundary {
   fill: none;
   stroke: #ff6600;
@@ -30,7 +35,7 @@
 #map_container svg{
     display:block;
     margin:auto;
-    margin-top:2%;
+    margin-top:1%;
 }
 
 

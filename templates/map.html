@@ -15,8 +15,10 @@
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="../static/css/map.css">
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile_map.css">
   </head>
-  <body>
+  <body> 
+    <div id="article_list"></div>
     <div id="map_container"></div>
     <script>
         var width = 1200,
@@ -29,14 +31,21 @@
         d3.json("../static/maps/euras3.json", function(error, euras) {
         if (error) return console.error(error);
 
-        d3.json("http://188.166.174.48/map/articles", function(error, arts) {
+		d3.json("http://xavonrails.com/map/articles", function(error, arts) {
         if (error) return console.error(error);
         euras["objects"]["arts"] = arts;
-      	console.log(euras);
 
         var arts = topojson.feature(euras, euras.objects.arts);
         var subunits = topojson.feature(euras, euras.objects.subunits);
         var places = topojson.feature(euras, euras.objects.places);
+
+	var list = d3.select('#article_list')
+	    .append('ul')
+	    .selectAll('li').data(arts.features)
+          .enter().append("li").append('a')
+            .attr("xlink:href", function(d){return "http://xavonrails.com/"+d.properties.id;})
+            .text(function(d) {return d.properties.name; });
+
         var projection = d3.geo.albers()
             .rotate([-105, 0])
             .center([-10, 65])
@@ -52,6 +61,11 @@
           .enter().append("path")
             .attr("class", function(d) { return "subunits " + d.id; })
             .attr("d", path);
+
+        svg.append("path")
+            .datum(topojson.mesh(euras, euras.objects.subunits, function(a, b) { return a == b}))
+            .attr("d", path)
+            .attr("class", "subunit-outer-boundary");
 
         svg.append("path")
             .datum(topojson.mesh(euras, euras.objects.subunits, function(a, b) { return a !== b}))

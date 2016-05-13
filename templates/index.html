@@ -11,27 +11,34 @@
     <script src="../static/lib/browser.min.js"></script>
     <!--STYLES-->
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/article.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width:701px" href="../static/css/article.css">
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile.css">
   </head>
   <body>
-    <div id="react_content"></div>
+	    <div id="react_content"></div>
     <script type="text/babel">
-
         function formatDate(articleDate) {
-            console.log(articleDate);
 	    var separator = " "+'\u0966'+" ";
             var d = new Date(articleDate);
-            console.log(d);
             return d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
         }
         
 	var Wrapper = React.createClass({
             render: function() {
+		var art_id = this.props.data.id;
                 var pics = this.props.data.pictures.map(function(p) {
+   	 	    return (
+			<li>
+			    <img className="pic_viewer" id={p.title.split('.')[0]} src={"../static/resources/pictures/"+art_id+"/"+p.title}></img>
+		   	</li>
+		   );
+		});
+		var picAnchors = this.props.data.pictures.map(function(p) {
                     return (
                         <li>
-                            <a href={"#five"+p.title}></a>
+                            <a href={"#"+p.title.split('.')[0]} >
+</a>
                         </li>
                     );
                 });
@@ -62,14 +69,18 @@
                             </div >
                             <div id="pic_container">
                                 <div id = "pic_wrapper">
-			   		<img id="phot_viewer" src={"../static/resources/pictures/"+this.props.data.id+"/"+this.props.data.pictures[0].title}></img></div>
-                                <ul id="droplet" className="pic_list">{pics}</ul>
-                            </div>
+                                    <ul>
+					{pics}
+				    </ul>
+				</div>
+				<ul id="droplet" className="pic_list">{picAnchors}</ul>
+				</div>
                         </div>
                     </div>
                 );
             }
         });
+	
 
         var ArticleContainer = React.createClass({
         loadCommentsFromServer: function() {
@@ -100,9 +111,12 @@
         });
 
         ReactDOM.render(
-          <ArticleContainer url="{{'http://188.166.174.48/article/'+article.id}}" pollInterval={20000} />,
+          <ArticleContainer url="{{'http://xavonrails.com/article/'+article.id}}" pollInterval={20000} />,
           document.getElementById('react_content')
-        );
+	    
+    );
+
     </script>
+    
   </body>
 </html>

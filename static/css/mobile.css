@@ -1,38 +1,31 @@
 #main_container{
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 1.05vw;
+    font-size: 3.5vw;
     font-weight: 100;
     line-height: 2.1;
     letter-spacing: 0.01vw;
     position:absolute;
-    top: 8%;
-    bottom: 0px;
-    left: 5%;
-    right: 5%;
-    width: 90%;
-    height: 85%;
+    width: 100%;
+    height: 100%;
     color: #666;
     background-color: #fdfdfd;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    border-radius: 4px;
     z-index:-1;
 }
 /* map link */
 #map_link {
     color: #333;
     float:left;
+    font-size:4vw;
     width:4%;
-    margin-left:1%;
-    margin-top:3%;
+    margin-left:5%;
+    margin-top:0%;
+    margin-bottom: -2%;
 }
 
 /* default link */
 a{
     color: #333;
     font-weight: 100;
-    font-size: 1.em;
     text-decoration: none;
     -webkit-transition: color 0.5s; /* Safari */
     transition: color 0.5s;
@@ -46,32 +39,26 @@ a:hover {
 /* article */
 #article_container{
     position: absolute;
-    width: 44%;
-    height: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 1%;
+    width: 100%;
+    height: 40%;
+    bottom: 0;
     float: left;
-    border-right: 1px solid #ddd;
     z-index:-1;
 }
 
 .article_header {
     padding: 0;
     margin: 0;
-    margin-top: 6%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
 }
 
 .article_title{
     font-weight: 100;
-    font-size: 0.8vw;
     text-transform: uppercase;
     color: #333;
     float: left;
     width: 100%;
     margin-top: 0%;
-    margin-left: 0;
     letter-spacing: 0.2em;
     text-align: center;
 }
@@ -81,7 +68,7 @@ a:hover {
     float: left;
     width: 100%;
     font-weight: 100;
-    font-size: 0.7vw;
+    font-size: 2.7vw;
     text-transform: uppercase;
     color: #777;
     margin-top: 0;
@@ -93,8 +80,8 @@ a:hover {
     font-size: 0.9em;
     overflow-y: scroll;
     height:73%;
-    margin-left: 10%;
-    margin-right: 8%;
+    margin-left: 5%;
+    margin-right: 3%;
     margin-bottom: 5%;
     text-align: justify;
     text-justify: inter-word;
@@ -110,11 +97,10 @@ a:hover {
 }
 
 #pic_container {
-    width: 48%;
-    height: 80%;
-    padding:4%;
+    width: 100%;
+    height: 60%;
     margin-right: 0%;
-    float: right;
+    float: left;
 }
 
 #pic_wrapper {
@@ -148,12 +134,12 @@ a:hover {
 }
 
 .pic_list li:first-child {
-    margin-left: 30%;
+    margin-left: 15%;
 }
 
 .pic_list li {
     float: left;
-    margin-right: 6%;
+    margin-right: 10%;
 }
 
 .pic_list li:last-child {
@@ -161,22 +147,24 @@ a:hover {
 }
 
 .pic_list a {
-    width: 6px;
-    height: 6px;
+    position:relative;
+    top: -80px;
+    width: 23px;
+    height: 23px;
     display: block;
     outline: none;
     border: none;
     position: relative;
     z-index: 2;
-    background: none;
-    border:1px solid #666;
+    background-color: rgba(100, 100, 100, 0.5);
+    border:1px solid #fff;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
 
 .pic_list a:hover {
-    background-color: #444;
+    background-color: #rgba(255,255,255,0.5);
     border: 1px solid #222;
 }
 
