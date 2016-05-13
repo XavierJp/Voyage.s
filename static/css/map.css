@@ -46,3 +46,7 @@
  font-weight:300;
  text-transform:uppercase;
 }
+
+#article_list {
+    visibility:hidden;
+}
