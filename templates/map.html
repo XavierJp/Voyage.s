@@ -44,6 +44,7 @@
 	    .selectAll('li').data(arts.features)
           .enter().append("li").append('a')
             .attr("xlink:href", function(d){return "http://xavonrails.com/"+d.properties.id;})
+	    .attr('class', 'list_label')
             .text(function(d) {return d.properties.name; });
 
         var projection = d3.geo.albers()
