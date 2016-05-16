@@ -13,15 +13,14 @@
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width:701px" href="../static/css/article.css">
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
-    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile3.css">
   </head>
   <body>
 	    <div id="react_content"></div>
     <script type="text/babel">
-        function formatDate(articleDate) {
+        function formatDate(year, month, day) {
 	    var separator = " "+'\u0966'+" ";
-            var d = new Date(articleDate);
-            return d.getFullYear()+separator+d.getMonth()+separator+d.getDate();
+            return year+separator+month+separator+day;
         }
         
 	var Wrapper = React.createClass({
@@ -34,8 +33,8 @@
 		   	</li>
 		   );
 		});
-		var picAnchors = this.props.data.pictures.map(function(p) {
-                    return (
+		var picAnchors = this.props.data.pictures.map(function(p) {    
+		return (
                         <li>
                             <a href={"#"+p.title.split('.')[0]} >
 </a>
@@ -59,7 +58,7 @@
 			    </ul>
                                 <div className="article_header" id={this.props.data.id}>
                                     <span className="article_title">{this.props.data.title}</span>
-                                    <span className="article_date">{formatDate(this.props.data.date)}</span>
+                                    <span className="article_date">{formatDate(this.props.data.year, this.props.data.month, this.props.data.day)}</span>
                                 </div>
                                 <br />
 				<div className="content">
@@ -97,7 +96,7 @@
             });
         },
         getInitialState: function() {
-            return {data: {data:"0000-00-00 00:00:00", content:"loading ...", pictures:[{title:""}]}};
+            return {data: {content:"loading ...", pictures:[{title:"loading.png"}]}};
         },
         componentDidMount: function() {
             this.loadCommentsFromServer();
@@ -115,6 +114,12 @@
           document.getElementById('react_content')
 	    
     );
+    
+    setInterval( function() { 
+	var dplets = document.getElementById('droplet');    
+   	var i = Math.round(Math.random()*10)%dplets.childNodes.length;
+	dplets.childNodes[i].childNodes[0].click();
+    }, 10000);
 
     </script>
     

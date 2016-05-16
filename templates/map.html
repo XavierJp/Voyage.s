@@ -13,9 +13,9 @@
 </script>
     <!--STYLES-->
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/map.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width:701px)" href="../static/css/map.css">
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
-    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile_map.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile_map3.css">
   </head>
   <body> 
     <div id="article_list"></div>
@@ -43,7 +43,8 @@
 	    .append('ul')
 	    .selectAll('li').data(arts.features)
           .enter().append("li").append('a')
-            .attr("xlink:href", function(d){return "http://xavonrails.com/"+d.properties.id;})
+            .attr("href", function(d){return "http://xavonrails.com/"+d.properties.id;})
+	    .append('text')
 	    .attr('class', 'list_label')
             .text(function(d) {return d.properties.name; });
 

@@ -101,6 +101,11 @@ a:hover {
     padding-right: 3%;
 }
 
+.content p {
+   margin-bottom: 4%;
+}
+
+
 /* picture viewer */
 
 .pic_viewer {
