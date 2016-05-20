@@ -1,10 +1,10 @@
 
-#map_container {
-   visibility: hidden;
-}
 
+#map_container {
+  display:none;
+}
 #article_list {
-visibility:visible;
+display:block;
 font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 font-size:3.5vw;
 font-weight:100;
@@ -21,6 +21,10 @@ padding-top:10%;
 letter-spacing: 0.2em;
 text-align:center;
 overflow:scroll;
+}
+
+#article_list h1 {
+   margin-bottom: 1%;
 }
 
 #article_list ul {

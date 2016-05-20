@@ -31,6 +31,11 @@
     fill: #a11;
 }
 
+#map_container {
+    width:100%;
+    height:100%;
+    overflow: scroll;
+}
 
 #map_container svg{
     display:block;
@@ -48,5 +53,5 @@
 }
 
 #article_list {
-    visibility:hidden;
+    display:none;
 }
