@@ -19,3 +19,19 @@ body{
 ::-webkit-scrollbar-track { border: 1px solid #ddd; border-radius:9px; background: none;}
 ::-webkit-scrollbar-thumb { border-radius:15px; background: rgba(100,100,100, 0.1); border:1px solid #aaa; }
 ::-webkit-scrollbar-thumb:window-inactive { background: #eee;}
+
+
+.nav a { 
+color:#eee;
+font-size:5em;
+position:absolute;
+text-align:center;
+width:5%;
+top:6%;
+margin:2%;
+text-shadow: 0px 0px 8px #222;
+}
+
+a#next { right: 0px; }
+
+a#prev { left: 0px; }

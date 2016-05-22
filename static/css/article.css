@@ -151,10 +151,6 @@ a:hover {
     list-style: none;
 }
 
-.pic_list li:first-child {
-    margin-left: 30%;
-}
-
 
 .pic_list li {
     float: left;
@@ -185,4 +181,4 @@ a:hover {
     border: 1px solid #222;
 }
 
-
+.nav { visibility: hidden; } 

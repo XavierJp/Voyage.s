@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width:701px" href="../static/css/article.css">
     <link rel="stylesheet" type="text/css" href="../static/css/blog.css">
-    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile3.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile6.css">
   </head>
   <body>
 	    <div id="react_content"></div>
@@ -23,6 +23,7 @@
             return year+separator+month+separator+day;
         }
         
+
 	var Wrapper = React.createClass({
             render: function() {
 		var art_id = this.props.data.id;
@@ -62,13 +63,18 @@
                                 </div>
                                 <br />
 				<div className="content">
+
 	                        {content}         
 				</div>
 				<br />
                             </div >
                             <div id="pic_container">
+                                <span className="nav">
+				    <a id="prev" href="javascript:slider_next();">&#x2039;</a></span>
+				<span className="nav">
+				    <a id="next" href="javascript:slider_prev();">&#x203a;</a></span>
                                 <div id = "pic_wrapper">
-                                    <ul>
+				    <ul>
 					{pics}
 				    </ul>
 				</div>
@@ -101,7 +107,10 @@
         componentDidMount: function() {
             this.loadCommentsFromServer();
             setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-        },
+	},
+	componentDidUpdate: function() {
+            centerDplets();
+	},
         render: function() {
             return (
                 <Wrapper data={this.state.data} />
@@ -111,15 +120,37 @@
 
         ReactDOM.render(
           <ArticleContainer url="{{'http://xavonrails.com/article/'+article.id}}" pollInterval={20000} />,
-          document.getElementById('react_content')
+          document.getElementById('react_content') 
 	    
     );
+    </script>
+    <script>
     
-    setInterval( function() { 
-	var dplets = document.getElementById('droplet');    
-   	var i = Math.round(Math.random()*10)%dplets.childNodes.length;
-	dplets.childNodes[i].childNodes[0].click();
-    }, 10000);
+    var active_pic = 0;
+    
+    function slider_next() {
+        slide(1);
+    }
+    
+    function slider_prev() {
+	slide(-1);
+    }
+
+
+    function slide(i) {
+    	var dplets = document.getElementById('droplet');    
+    	var pic_num = dplets.childNodes.length;
+	active_pic = (pic_num + active_pic + i) % pic_num;
+	dplets.childNodes[active_pic].childNodes[0].click();
+    }
+
+    function centerDplets() {
+    	var dplets = document.getElementById('droplet');    
+    	var pic_num = dplets.childNodes.length;
+	console.log(pic_num);
+        dplets.setAttribute('style', 'width:'+pic_num*4+'%; padding-left :'+(50-(pic_num*2))+'%');
+
+    }
 
     </script>
     

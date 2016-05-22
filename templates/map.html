@@ -19,7 +19,7 @@
   </head>
   <body> 
     <div id="article_list">
-        <img src="../static/resources/pictures/undefined/logo.jpg">
+        <img id="logo" src="../static/resources/pictures/undefined/logo.jpg">
         <h1>xav on rails</h1> 
     </div>
     <div id="map_container"></div>
@@ -40,7 +40,7 @@
         euras["objects"]["arts"] = arts;
 
         var arts = topojson.feature(euras, euras.objects.arts);
-        var subunits = topojson.feature(euras, euras.objects.subunits);
+	var subunits = topojson.feature(euras, euras.objects.subunits);
         var places = topojson.feature(euras, euras.objects.places);
 
 	var list = d3.select('#article_list')
@@ -50,7 +50,7 @@
             .attr("href", function(d){return "http://xavonrails.com/"+d.properties.id;})
 	    .append('text')
 	    .attr('class', 'list_label')
-            .text(function(d) {return d.properties.name; });
+            .text(function(d) {return d.properties.month+"/"+d.properties.day+" : "+d.properties.name; });
 
         var projection = d3.geo.albers()
             .rotate([-105, 0])
@@ -118,7 +118,7 @@
             .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
             .attr("dy", ".25em")
             .attr("dx", "0.5em")
-            .attr("font-size","0.8em")
+            .attr("font-size","0.7em")
             .text(function(d) { return d.properties.name; });
 
         });
