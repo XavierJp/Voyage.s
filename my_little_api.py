@@ -18,7 +18,9 @@ feat = '{ "type":"Point","properties":{"day":"%s","month":"%s","year":"%s","name
 # map
 @app.route("/map/articles", methods=["GET"])
 def get_geo_articles():
-    q_art = eval(str(Article.query.all()))
+    res = Article.query.all()
+    res.reverse()
+    q_art= eval(str(res))
     geo_art_coll =eval(featCollec)
     for art in q_art:
 	feat_obj=eval(feat % (art["day"],art["month"], art["year"],art["title"], art["id"], art["lat"], art["long"]))

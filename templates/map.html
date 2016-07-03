@@ -18,9 +18,9 @@
     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:700px)" href="../static/css/mobile_map3.css">
   </head>
   <body> 
-    <div id="article_list">
-        <img id="logo" src="../static/resources/pictures/undefined/logo.jpg">
-        <h1>xav on rails</h1> 
+       <div id="article_list">
+<img id="logo" src="../static/resources/pictures/undefined/logo.jpg">
+  <h1>xav on rails</h1> 
     </div>
     <div id="map_container"></div>
     <script>
@@ -100,7 +100,7 @@
             .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
             .attr("dy", ".25em")
             .attr("dx", ".5em")
-            .attr("font-size","0.8em")
+            .attr("font-size","0.7em")
             .text(function(d) { return d.properties.name; });
 
         svg.append("path")
