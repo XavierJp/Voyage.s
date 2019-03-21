@@ -1,0 +1,72 @@
+svg {
+  display: block;
+  cursor: move;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+.country {
+  fill: rgb(236, 213, 183);
+  stroke: #fff;
+  stroke-width: 1px;
+}
+.trip {
+  fill: none;
+  stroke: rgb(146, 97, 50);
+  stroke-width: 2px;
+  stroke-opacity: 1;
+}
+.stop {
+  fill: #eee;
+  stroke: rgb(146, 97, 50);
+  stroke-width: 1px;
+  stroke-opacity: 1;
+  cursor: pointer;
+  z-index: 10;
+}
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: 0.5px;
+  stroke-opacity: 0.5;
+}
+
+.tooltip {
+  background-color: none;
+  position: absolute;
+  font-family: 'Fira Sans', sans-serif;
+  height: 40px;
+  width: auto;
+  border-left: 1px solid rgb(73, 6, 6);
+  z-index: 0;
+
+  &:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background-color: rgb(73, 6, 6);
+    border-radius: 20px;
+    position: absolute;
+    left: -4px;
+  }
+
+  > div {
+    transform: translateX(5px) translateY(-15px);
+    margin: 5px;
+    height: 25px;
+    padding: 0 4px;
+    // background-color: rgba(255, 245, 217, 0.678);
+    font-size: 0.9rem;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 245, 217, 0.678) 0%,
+      rgba(255, 245, 217, 0.678) 100%
+    );
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 0%;
+    background-position: 0 100%;
+    // transition: background-size 0.125s ease-in, opacity 0.125s ease-in;
+  }
+}
