@@ -83,7 +83,7 @@ export const pageQuery = graphql`
       }
       pics {
         title
-        fixed(width: 500) {
+        fixed(height: 270) {
           width
           height
           src

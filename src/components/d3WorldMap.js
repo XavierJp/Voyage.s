@@ -122,7 +122,8 @@ export default class D3WorldMap extends Component {
       .enter()
       .append('path')
       .attr('d', path)
-      .attr('class', 'trip');
+      .attr('class', 'trip')
+      .attr('stroke-dasharray', 3);
 
     const stops = this.props.stops;
     svg
@@ -132,7 +133,6 @@ export default class D3WorldMap extends Component {
       .append('path')
       .attr('class', 'stop')
       .attr('d', path)
-      .attr('fill', '#ffba00')
       .attr('fill-opacity', 1)
       .on('mouseover', function(d) {
         const easeBackOut = d3Transition.transition().ease(d3Ease.easeBackOut);

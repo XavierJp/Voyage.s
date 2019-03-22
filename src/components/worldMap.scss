@@ -18,9 +18,9 @@ svg {
   stroke-opacity: 1;
 }
 .stop {
-  fill: #eee;
+  fill: #fff;
   stroke: rgb(146, 97, 50);
-  stroke-width: 1px;
+  stroke-width: 2px;
   stroke-opacity: 1;
   cursor: pointer;
   z-index: 10;
@@ -40,6 +40,7 @@ svg {
   width: auto;
   border-left: 1px solid rgb(73, 6, 6);
   z-index: 0;
+  font-size: 1rem;
 
   &:before {
     content: '';
