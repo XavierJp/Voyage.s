@@ -8,8 +8,28 @@ import * as d3Ease from 'd3-ease';
 import * as topojson from 'topojson';
 
 import world from '../resources/geoJson/world';
-import { sanitizeName } from '../../gatsby-node';
 import { navigate } from 'gatsby';
+
+const sanitizeName = (articleTitle, articleDate) => {
+  if (!articleTitle || !articleDate) {
+    console.error(`invalid url : no title or date provided`);
+  }
+
+  let p;
+  try {
+    p = articleTitle
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/([^a-zA-Z0-9])/g, ' ')
+      .split(' ')
+      .filter(Boolean)
+      .join('-')
+      .toLowerCase();
+  } catch (e) {
+    console.error(e);
+  }
+  return p;
+};
 
 export default class D3WorldMap extends Component {
   componentDidMount() {

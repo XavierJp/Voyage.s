@@ -28,8 +28,6 @@ const sanitizeName = (articleTitle, articleDate) => {
   return p;
 };
 
-exports.sanitizeName = sanitizeName;
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
