@@ -17,9 +17,25 @@ div.header {
       width: 90px;
       height: 4px;
       border-bottom: 2px solid rgb(87, 59, 33);
-      /* border-top: 1px solid rgb(87, 59, 33); */
       display: block;
       margin-top: 1px;
+    }
+  }
+
+  @media (min-width: 1px) and (max-width: 1000px) {
+    bottom: 20px;
+    top: initial;
+    right: initial;
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem !important;
+      align-items: center;
+
+      &:after {
+        margin-top: 5px;
+      }
     }
   }
 }

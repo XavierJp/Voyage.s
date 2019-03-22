@@ -4,7 +4,24 @@ import Layout from '../../components/layout';
 import SEO from '../../components/seo';
 import './styles.scss';
 import WorldMap from '../../components/worldMap';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
+
+const cross = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    strokeWidth="5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    onClick={() => navigate('/')}
+  >
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
 
 export default props => {
   const [selectedPic, setSelectedPic] = useState(0);
@@ -14,6 +31,7 @@ export default props => {
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <WorldMap />
       <div className="article">
+        {cross}
         <h2>{props.data.contentfulArticle.title}</h2>
         <h3>
           {new Intl.DateTimeFormat('fr-FR', {

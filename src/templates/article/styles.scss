@@ -9,9 +9,18 @@ div.article {
   overflow: auto;
   box-shadow: 47px 0 50px 50px rgba(0, 0, 0, 0.3);
 
+  > svg {
+    position: absolute;
+    top: 35px;
+    width: 16px;
+    height: 16px;
+    right: 20px;
+    stroke: rgb(87, 59, 33);
+    cursor: pointer;
+  }
   > h2 {
     text-align: center;
-    margin: 30px 0 20px;
+    margin: 30px 0 10px;
   }
 
   > h3 {
@@ -19,7 +28,7 @@ div.article {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     &:before,
     &:after {
       content: '';
