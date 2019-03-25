@@ -1,37 +1,40 @@
-svg {
-  display: block;
-  cursor: move;
-  border: none;
-  background: none;
-  margin: 0;
-  padding: 0;
-}
-.country {
-  fill: rgb(236, 213, 183);
-  stroke: #fff;
-  stroke-width: 1px;
-}
-.trip {
-  fill: none;
-  stroke: rgb(146, 97, 50);
-  stroke-width: 2px;
-  stroke-opacity: 1;
-}
-.stop {
-  fill: #fff;
-  stroke: rgb(146, 97, 50);
-  stroke-width: 2px;
-  stroke-opacity: 1;
-  cursor: pointer;
-  z-index: 10;
-}
-.graticule {
-  fill: none;
-  stroke: #777;
-  stroke-width: 0.5px;
-  stroke-opacity: 0.5;
+#world-map {
+  svg {
+    display: block;
+    cursor: move;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+  }
+  .country {
+    fill: rgb(236, 213, 183);
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+  .trip {
+    fill: none;
+    stroke: rgb(146, 97, 50);
+    stroke-width: 2px;
+    stroke-opacity: 1;
+  }
+  .stop {
+    fill: #fff;
+    stroke: rgb(146, 97, 50);
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .graticule {
+    fill: none;
+    stroke: #777;
+    stroke-width: 0.5px;
+    stroke-opacity: 0.5;
+  }
 }
 
+// Careful ! this is global !
 .tooltip {
   background-color: none;
   position: absolute;

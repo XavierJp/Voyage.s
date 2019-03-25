@@ -88,10 +88,6 @@ export default class D3WorldMap extends Component {
       .on('drag', function() {
         tooltip.style('opacity', 0);
 
-        if (window.location.pathname !== '/') {
-          navigate('/');
-        }
-
         projection.rotate([
           lambda(d3Selection.event.x),
           phi(d3Selection.event.y),
