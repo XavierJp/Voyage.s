@@ -11,6 +11,5 @@ Old stack :
 - React.js & D3.js
 
 New stack :
-- Next.js 
-- Article in Markdown
-- A bit of d3.js
+- Gatsby & D3.js
+- Contentful
